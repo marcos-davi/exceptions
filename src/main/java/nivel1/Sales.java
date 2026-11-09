@@ -18,4 +18,15 @@ public class Sales {
 
      return totalPrice;
     }
+
+    public void SimulateIndexOutOfBoundsException(){
+
+        try {
+            Product p1 = products.get(10);
+            System.out.println(p1.getName());
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Index out of bounds");
+        }
+
+    }
 }
