@@ -6,20 +6,19 @@ public class Sales {
     ArrayList<Product> products = new ArrayList<>();
     double totalPrice;
 
-    private double calculateTotal() throws EmptySaleException {
+    private double calculateTotal() {
         if (products.isEmpty()) {
             throw new EmptySaleException("The sale is empty. Please add products to the sale.");
         } else {
-            for(Product p : products) {
+            for (Product p : products) {
                 totalPrice += p.getPrice();
             }
-
         }
 
-     return totalPrice;
+        return totalPrice;
     }
 
-    public void SimulateIndexOutOfBoundsException(){
+    public void simulateIndexOutOfBoundsException() {
 
         try {
             Product p1 = products.get(10);
