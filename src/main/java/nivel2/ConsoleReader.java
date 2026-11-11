@@ -3,10 +3,10 @@ package nivel2;
 import java.util.Scanner;
 
 public class ConsoleReader {
-static Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
     public static byte readByte(String message) {
-        while (true){
+        while (true) {
             try {
                 System.out.println(message);
                 return sc.nextByte();
@@ -14,27 +14,44 @@ static Scanner sc = new Scanner(System.in);
                 System.out.println("Invalid input. Please enter a valid ");
                 sc.nextLine(); // Clear the invalid input
             }
-
         }
-
     }
-
-
-
-
-
 
 
     public static int readInt(String message) {
-        return 0;
+        while (true) {
+            try {
+                System.out.println(message);
+                return sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid ");
+                sc.nextLine(); // Clear the invalid input
+            }
+        }
     }
 
     public static float readFloat(String message) {
-        return 0;
+        while (true) {
+            try {
+                System.out.println(message);
+                return sc.nextFloat();
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid ");
+                sc.nextLine(); // Clear the invalid input
+            }
+        }
     }
 
     public static double readDouble(String message) {
-        return 0;
+        while (true) {
+            try {
+                System.out.println(message);
+                return sc.nextDouble();
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid ");
+                sc.nextLine(); // Clear the invalid input
+            }
+        }
     }
 
     public static char readChar(String message) {
@@ -57,7 +74,6 @@ static Scanner sc = new Scanner(System.in);
         // Qualsevol altra entrada hauria de generar una excepció personalitzada.
         return false;
     }
-
 
 
 }
