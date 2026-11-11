@@ -3,12 +3,27 @@ package nivel2;
 import java.util.Scanner;
 
 public class ConsoleReader {
-Scanner sc = new Scanner(System.in);
+static Scanner sc = new Scanner(System.in);
 
     public static byte readByte(String message) {
-        System.out.println("ConsoleReader.readByte");
-        return 0;
+        while (true){
+            try {
+                System.out.println(message);
+                return sc.nextByte();
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid ");
+                sc.nextLine(); // Clear the invalid input
+            }
+
+        }
+
     }
+
+
+
+
+
+
 
     public static int readInt(String message) {
         return 0;
