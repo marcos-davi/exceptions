@@ -11,28 +11,12 @@ public class ReservationService {
     private final int seatsPerRow;
     private final List<Seat> seats;
 
-    public ReservationService(int totalRows, int seatsPerRow, List<Seat> seats) {
+    public ReservationService(int totalRows, int seatsPerRow) {
         this.totalRows = totalRows;
         this.seatsPerRow = seatsPerRow;
         this.seats = new ArrayList<>();
     }
 
-    private void validateSeatPosition(int row, int seat) {
-        if (seat < 1 || seat > seatsPerRow || row < 1 || row > totalRows) {
-            throw new IllegalArgumentException("Invalid seat position.");
-        }
-        for (Seat s : seats) {
-            if (s.getRow() == row && s.getSeat() == seat) {
-                throw new IllegalArgumentException("Seat is already reserved.");
-            }
-        }
-    }
-
-    private void validatePersonName(String personName) {
-        if (personName == null || personName.trim().isEmpty()) {
-            throw new IllegalArgumentException("Invalid person name.");
-        }
-    }
 
     public void reserveSeat(int row, int seat, String personName) {
         validateSeatPosition(row, seat);
@@ -70,11 +54,27 @@ public class ReservationService {
         return new ArrayList<>(seats);
     }
 
-    // Devuelve la lista de butacas reservadas por una persona concreta
     public List<Seat> getSeatsByPerson(String name) {
         validatePersonName(name);
         return seats.stream()
                 .filter(seat -> seat.getPersonName().equalsIgnoreCase(name.trim()))
                 .collect(Collectors.toList());
+    }
+
+    private void validateSeatPosition(int row, int seat) {
+        if (seat < 1 || seat > seatsPerRow || row < 1 || row > totalRows) {
+            throw new IllegalArgumentException("Invalid seat position.");
+        }
+        for (Seat s : seats) {
+            if (s.getRow() == row && s.getSeat() == seat) {
+                throw new IllegalArgumentException("Seat is already reserved.");
+            }
+        }
+    }
+
+    private void validatePersonName(String personName) {
+        if (personName == null || personName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Invalid person name.");
+        }
     }
 }
