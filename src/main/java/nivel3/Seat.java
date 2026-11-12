@@ -15,33 +15,22 @@ public class Seat {
         return row;
     }
 
-    public void setRow(int row) {
-        this.row = row;
-    }
-
     public int getSeat() {
         return seat;
-    }
-
-    public void setSeat(int seat) {
-        this.seat = seat;
     }
 
     public String getPersonName() {
         return personName;
     }
 
-    public void setPersonName(String personName) {
-        this.personName = personName;
-    }
-
     @Override
     public String toString() {
         return "Seats{" +
                 "Seat= " + seat +
-                ", Name='" + personName + '\'' +
+                ", Name= '" + personName + '\'' +
                 '}';
     }
+
     @Override
     public boolean equals(Object o) {
 
